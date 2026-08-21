@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // Lista para armazenar todos os números
+        List<int> numeros = new List<int>();
+        int numero;
+        Console.WriteLine("Digite os números (0 para encerrar):");
+        do
+        {
+            Console.Write("Digite um número: ");
+            numero = int.Parse(Console.ReadLine());
+            if (numero != 0)
+            {
+                numeros.Add(numero);
+            }
+        } while (numero != 0);
+        List<int> pares = new List<int>();
+        List<int> impares = new List<int>();
+        foreach (int n in numeros)
+        {
+            if (n % 2 == 0)
+            {
+                pares.Add(n);
+            }
+            else
+            {
+                impares.Add(n);
+            }
+        }
+        numeros.Sort();
+        pares.Sort();
+        impares.Sort();
+        Console.WriteLine("\nNúmeros em ordem crescente:");
+        foreach (int n in numeros)
+        {
+            Console.Write(n + " ");
+        }
+        Console.WriteLine("\n\nNúmeros pares:");
+        foreach (int n in pares)
+        {
+            Console.Write(n + " ");
+        }
+        Console.WriteLine("\n\nNúmeros ímpares:");
+        foreach (int n in impares)
+        {
+            Console.Write(n + " ");
+        }
+        int somaTotal = 0;
+        int somaPares = 0;
+        int somaImpares = 0;
+        foreach (int n in numeros)
+        {
+            somaTotal += n;
+        }
+        foreach (int n in pares)
+        {
+            somaPares += n;
+        }
+        foreach (int n in impares)
+        {
+            somaImpares += n;
+        }
+        Console.WriteLine("\n\nSoma dos números: " + somaTotal);
+        Console.WriteLine("Soma dos números pares: " + somaPares);
+        Console.WriteLine("Soma dos números ímpares: " + somaImpares);
+    }
+}
