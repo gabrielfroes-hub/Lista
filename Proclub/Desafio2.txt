@@ -1,0 +1,48 @@
+﻿using System; 
+using System.Collections.Generic; 
+ 
+class Program 
+{ 
+   static void Main() 
+   { 
+       List<int> numeros = new List<int>(); 
+       int numero; 
+       Console.WriteLine("Digite os números (0 para encerrar):"); 
+       do 
+       { 
+           Console.Write("Digite um número: "); 
+           numero = int.Parse(Console.ReadLine()); 
+           if (numero != 0) 
+           { 
+               numeros.Add(numero); 
+           } 
+       } while (numero != 0); 
+       if (numeros.Count == 0) 
+       {    
+           Console.WriteLine("Nenhum número foi informado."); 
+           return; 
+       } 
+       int soma = 0; 
+       long multiplicacao = 1; 
+       int maior = numeros[0]; 
+       int menor = numeros[0]; 
+       foreach (int n in numeros) 
+       { 
+           soma += n; 
+           multiplicacao *= n; 
+           if (n > maior) 
+           { 
+               maior = n; 
+           } 
+           if (n < menor) 
+           { 
+               menor = n; 
+           } 
+       } 
+       Console.WriteLine("\n--- RESULTADOS ---"); 
+       Console.WriteLine("Soma: " + soma); 
+       Console.WriteLine("Multiplicação: " + multiplicacao); 
+       Console.WriteLine("Maior número: " + maior); 
+       Console.WriteLine("Menor número: " + menor); 
+   } 
+} 
