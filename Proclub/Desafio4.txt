@@ -1,0 +1,31 @@
+﻿List<int> numerosInformados = new List<int> ();
+List<int> numerosSemRepeticao = new List<int>();
+List<int> numerosRepitidos = new List<int>();
+
+int numero = -1;
+Console.WriteLine("Digite os números. (Digite 0 para encerrar)");
+
+while (numero != 0)
+{
+    Console.WriteLine("Digite um número");
+    numero = int.Parse(Console.ReadLine());
+    if (numero > 0)
+    {
+        numerosInformados.Add(numero);
+    }
+}
+
+foreach (int i in numerosInformados)
+{
+    if (!numerosSemRepeticao.Contains(i))
+    {
+        numerosSemRepeticao.Add(i);
+    }
+    else if (!numerosRepitidos.Contains(i)) {
+        numerosRepitidos.Add(i);
+    }
+}
+
+Console.WriteLine("Lista original: " + string.Join(", ", numerosInformados));
+Console.WriteLine("Números sem repeticao: " + string.Join(",", numerosSemRepeticao));
+Console.WriteLine("Números repitidos: " + string.Join(", ", numerosRepitidos));
